@@ -100,14 +100,6 @@ int main(int argc, char *argv[]){
 				printf("%c", buf[i]);
 			}
 		}
-		/* INPUT NOT WORKING */
-		else{
-			int r = fread(&buf,sizeof(buf),512,stdin);
-			if(r){
-				write(sockfd,&buf,sizeof(buf));
-			}
-		}
-
 	}
 
 	close(sockfd);
