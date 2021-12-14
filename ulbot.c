@@ -1,7 +1,7 @@
 /*
- *	UltrosIRC - 2021
- * 		command line irc bot.
- */
+*	UltrosIRC - 2021
+* 		command line irc bot.
+*/
 
 #include <stdio.h>
 #include <sys/socket.h>
@@ -100,11 +100,18 @@ int main(int argc, char *argv[]){
 				printf("%c", buf[i]);
 			}
 		}
+		/* INPUT NOT WORKING */
+		else{
+			int r = fread(&buf,sizeof(buf),512,stdin);
+			if(r){
+				write(sockfd,&buf,sizeof(buf));
+			}
+		}
+
 	}
 
-    close(sockfd);
-    
-    return 0;
+	close(sockfd);
+
+	return 0;
 
 }
-
